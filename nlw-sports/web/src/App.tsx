@@ -1,11 +1,10 @@
-import axios from 'axios'
-
 import logoImg from './assets/logo-nlw-esports.svg'
 import { GameBanner } from './components/GameBanner'
 import { useEffect, useState } from 'react'
 import { Dialog } from '@radix-ui/react-dialog'
 import { CreateAdBanner } from './components/CreateAdBanner'
 import { CreateAdModal } from './components/CreateAdModal'
+import { api } from './service/api'
 
 interface Game {
   id: string
@@ -20,7 +19,7 @@ function App() {
   const [games, setGames] = useState<Game[]>([])
 
   useEffect(() => {
-    axios('http://localhost:3333/games').then((response) => {
+    api.get('/games').then((response) => {
       setGames(response.data)
     })
   }, [])
