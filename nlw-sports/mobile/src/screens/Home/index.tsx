@@ -1,39 +1,75 @@
 
-import { FlatList, Image } from 'react-native';
+import { FlatList, Image, } from 'react-native';
 
 import { Background } from "../../components/Background";
 import logoImg from '../../assets/logo-nlw-esports.png';
-import { styles } from './styles';
 import { Heading } from '../../components/Heading';
-import { GameCard } from '../../components/GameCard';
-import { GAMES } from '../../utils/games';
+import { GameCard, GameCardProps } from '../../components/GameCard';
+import { useEffect, useState } from 'react';
+import { api } from '../../service/api';
+import { useToast } from 'native-base';
+import { Container, ContentList, Logo } from './styles';
+
+
 
 export function Home() {
+  const [games, setGames] = useState<GameCardProps[]>([])
+  const [isLoading, setIsLoading] = useState(true);
+
+  const toast = useToast();
+
+
+  async function fetchGames() {
+    try {
+      setIsLoading(true)
+      const response = await api.get('/games');
+      setGames(response.data);
+    } catch (error) {
+      console.log(error);
+
+      toast.show({
+        title: 'Error ao exibir os jogos',
+      });
+
+
+    } finally {
+      setIsLoading(false);
+    }
+  }
+
+  useEffect(() => {
+    fetchGames();
+  }, [])
+
   return (
-    <Background>
+    <Container>
+      <Background>
 
-      <Image
-        source={logoImg}
-        style={styles.logo}
-      />
-      
-      <Heading
-        title="Encontre seu duo!"
-        subtitle="Selecione o game que deseja jogar..."
-      />
-        <FlatList
-          data={GAMES}
-          keyExtractor={item => item.id}
-          renderItem={({ item }) => (
-            <GameCard
-              data={item}
-            />
-          )}
-          showsHorizontalScrollIndicator={false}
-          horizontal
-          contentContainerStyle={styles.contentList}
+        <Logo>
+          <Image
+            source={logoImg}
+          />
+        </Logo>
+
+        <Heading
+          title="Encontre seu duo!"
+          subtitle="Selecione o game que deseja jogar..."
         />
+        <ContentList>
+          <FlatList
+            data={games}
+            keyExtractor={item => item.id}
+            renderItem={({ item }) => (
+              <GameCard
+                data={item}
+              />
+            )}
+            showsHorizontalScrollIndicator={false}
+            horizontal
+          />
+        </ContentList>
 
-    </Background>
+      </Background>
+    </Container>
   );
 }

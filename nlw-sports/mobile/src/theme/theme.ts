@@ -1,5 +1,7 @@
-export const THEME = {
-  COLORS: {
+
+export default {
+  colors: {
+
     BACKGROUND_900: '#121214',
     BACKGROUND_800: '#18181B',
 
@@ -11,8 +13,8 @@ export const THEME = {
 
     SHAPE: '#2A2634',
 
-    PRIMARY: '#8B5CF6',
     SUCCESS: '#34D399',
+    PRIMARY: '#8B5CF6',
     ALERT: '#F87171',
 
     FOOTER: ['rgba(0,0,0,0)', 'rgba(0,0,0,0.9)'],
@@ -27,8 +29,8 @@ export const THEME = {
   },
 
   FONT_SIZE: {
-    SM: 14,
-    MD: 16,
-    LG: 24
+    SM: '14px',
+    MD: '16px',
+    LG: '24px',
   }
 };

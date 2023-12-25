@@ -36,23 +36,20 @@ export function CreateAdModal() {
     }
 
     try {
-      const response = await api.post(
-        `http://localhost:3333/games/${data.game}/ads`,
-        {
-          name: data.name,
-          yearsPlaying: Number(data.yearsPlaying),
-          discord: data.discord,
-          weekDays: weekDays.map(Number),
-          hourStart: data.hourStart,
-          hourEnd: data.hourEnd,
-          useVoiceChannel,
-        },
-      )
+      const response = await api.post(`/games/${data.game}/ads`, {
+        name: data.name,
+        yearsPlaying: Number(data.yearsPlaying),
+        discord: data.discord,
+        weekDays: weekDays.map(Number),
+        hourStart: data.hourStart,
+        hourEnd: data.hourEnd,
+        useVoiceChannel,
+      })
 
-      toast('Anúncio criado com sucesso!')
+      toast.success('Anúncio criado com sucesso!')
     } catch (err) {
       console.log(err)
-      toast('Erro ao criar anúncio!')
+      toast.error('Erro ao criar anúncio!')
     }
   }
 

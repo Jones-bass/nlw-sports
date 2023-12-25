@@ -1,4 +1,6 @@
-import { StatusBar } from "react-native";
+import { NativeBaseProvider, StatusBar } from "native-base";
+import { ThemeProvider } from "styled-components/native";
+
 import { Background } from './src/components/Background';
 import {
   useFonts,
@@ -10,8 +12,7 @@ import {
 
 import { Home } from "./src/screens/Home";
 import { Loading } from "./src/components/Loading";
-
-
+import theme from "./src/theme/theme";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -20,15 +21,17 @@ export default function App() {
     Inter_700Bold,
     Inter_900Black,
   });
-  
+
   return (
     <Background>
-      <StatusBar
-        barStyle="light-content"
-        backgroundColor="transparent"
-        translucent
-      />
-      {fontsLoaded ? <Home /> : <Loading />}
+      <ThemeProvider theme={theme}>
+        <StatusBar
+          barStyle="light-content"
+          backgroundColor="transparent"
+          translucent
+        />
+        {fontsLoaded ? <Home /> : <Loading />}
+      </ThemeProvider>
     </Background>
   );
 }

@@ -1,18 +1,31 @@
-import { StyleSheet } from "react-native";
+import styled from "styled-components/native";
+import theme from "../../theme/theme";
 
-export const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-  },
-  logo: {
-    width: 214,
-    height: 120,
-    marginTop: 74,
-    marginBottom: 48,
-  },
-  contentList: {
-    paddingLeft: 32,
-    paddingRight: 64,
-  }
-});
+export const Container = styled.View`
+    display: flex;
+    align-items: center;
+  `;
+
+export const Logo = styled.View`
+    width: 214px;
+    height: 140px;
+    margin-top: 74px;
+    margin-left: 20px;
+    margin-bottom: 48px;
+    `;
+
+export const ContentList = styled.View`
+    padding-left: 20px;
+    padding-right: 64px;
+    `;
+
+export const GradientContainer = styled.View`
+    padding: 16px;
+    border-radius: 8px;
+    `;
+
+export const Text = styled.Text`
+    color: ${theme.colors.TEXT};
+    font-size: ${theme.FONT_SIZE.LG};
+    font-family: ${theme.FONT_FAMILY.REGULAR};
+  `;

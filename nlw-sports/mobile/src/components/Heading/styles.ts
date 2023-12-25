@@ -1,19 +1,24 @@
-import { StyleSheet } from "react-native";
-import { THEME } from "../../theme";
 
-export const styles = StyleSheet.create({
-  container: {
-    width: '100%',
-    padding: 32,
-  },
-  title: {
-    color: THEME.COLORS.TEXT,
-    fontSize: THEME.FONT_SIZE.LG,
-    fontFamily: THEME.FONT_FAMILY.BLACK,
-  },
-  subtitle: {
-    color: THEME.COLORS.CAPTION_400,
-    fontSize: THEME.FONT_SIZE.MD,
-    fontFamily: THEME.FONT_FAMILY.REGULAR,
-  }
-});
+import styled from "styled-components/native";
+import theme from "../../theme/theme";
+
+export const Container = styled.View`
+    width: 100%;
+    padding: 32px;
+  `;
+
+export const Title = styled.Text`
+    color: ${theme.colors.TEXT};
+    font-size: ${theme.FONT_SIZE.LG};
+    font-family: ${theme.FONT_FAMILY.BLACK};
+  `;
+
+export const Subtitle = styled.Text`
+    color: ${theme.colors.CAPTION_400};
+    font-size: ${theme.FONT_SIZE.MD};
+    font-family: ${theme.FONT_FAMILY.REGULAR};
+  `;
+
+
+
+

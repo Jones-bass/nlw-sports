@@ -1,22 +1,22 @@
-import { View, Text, ViewProps } from 'react-native';
+import { ViewProps } from 'react-native';
 
-import { styles } from './styles';
+import { Container, Subtitle, Title } from './styles';
 
 interface Props extends ViewProps {
   title: string;
   subtitle: string;
 }
 
-export function Heading({ title, subtitle, ...rest}: Props) {
+export function Heading({ title, subtitle,}: Props) {
   return (
-    <View style={styles.container} {...rest}>
-      <Text style={styles.title}>
+    <Container>
+      <Title >
         {title}
-      </Text>
+      </Title>
 
-      <Text style={styles.subtitle}>
+      <Subtitle>
         {subtitle}
-      </Text>
-    </View>
+      </Subtitle>
+    </Container>
   );
 }
