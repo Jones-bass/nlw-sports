@@ -6,9 +6,9 @@ export const Container = styled.View`
     align-items: center;
   `;
 
-export const Logo = styled.View`
-    width: 214px;
-    height: 140px;
+export const Logo = styled.Image`
+    width: 180px;
+    height: 100px;
     margin-top: 74px;
     margin-left: 20px;
     margin-bottom: 48px;

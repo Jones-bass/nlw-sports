@@ -1,5 +1,5 @@
 
-import { FlatList, Image, } from 'react-native';
+import { FlatList } from 'react-native';
 
 import { Background } from "../../components/Background";
 import logoImg from '../../assets/logo-nlw-esports.png';
@@ -9,6 +9,7 @@ import { useEffect, useState } from 'react';
 import { api } from '../../service/api';
 import { useToast } from 'native-base';
 import { Container, ContentList, Logo } from './styles';
+import { useNavigation } from '@react-navigation/native';
 
 
 
@@ -18,6 +19,11 @@ export function Home() {
 
   const toast = useToast();
 
+  const navigation = useNavigation();
+
+  function handleOpenGaming({ id, title, bannerUrl }: GameCardProps) {
+    navigation.navigate('game', { id, title, bannerUrl });
+  }
 
   async function fetchGames() {
     try {
@@ -45,11 +51,9 @@ export function Home() {
     <Container>
       <Background>
 
-        <Logo>
-          <Image
+          <Logo
             source={logoImg}
           />
-        </Logo>
 
         <Heading
           title="Encontre seu duo!"
@@ -62,6 +66,8 @@ export function Home() {
             renderItem={({ item }) => (
               <GameCard
                 data={item}
+                onPress={() => handleOpenGaming(item)}
+ 
               />
             )}
             showsHorizontalScrollIndicator={false}
