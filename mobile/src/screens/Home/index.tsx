@@ -49,8 +49,6 @@ export function Home() {
 
   return (
     <Container>
-      <Background>
-
           <Logo
             source={logoImg}
           />
@@ -74,8 +72,6 @@ export function Home() {
             horizontal
           />
         </ContentList>
-
-      </Background>
     </Container>
   );
 }

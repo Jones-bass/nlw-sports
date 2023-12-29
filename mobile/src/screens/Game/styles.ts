@@ -1,11 +1,12 @@
 import styled from "styled-components/native";
 import theme from "../../theme/theme";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export const ContainerList = styled.View`
   width: 100%;
 `;
 
-export const Container = styled.View`
+export const Container = styled(SafeAreaView)`
   display: flex;
   align-items: center;
 `;
@@ -14,14 +15,15 @@ export const Header = styled.View`
   width: 100%;
   flex-direction: row;
   align-items: center;
-  padding-right: 32px;
-  margin-top: 28px;
   justify-content: space-between;
 `;
 
 export const Logo = styled.Image`
-  width: 102px;
-  height: 40px;
+  align-items: center;
+  justify-content: center;
+
+  width: 100px;
+  object-fit: contain;
 `;
 
 export const Rigth = styled.View`
@@ -29,8 +31,8 @@ export const Rigth = styled.View`
   height: 20px;
 `;
 
-export const Cover = styled.View`
-  width: 311px;
+export const Cover = styled.Image`
+  width: 360px;
   height: 160px;
   border-radius: 8px;
   margin-top: 32px;

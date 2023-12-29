@@ -12,6 +12,7 @@ import {
 import { Loading } from "./src/components/Loading";
 import theme from "./src/theme/theme";
 import { Routes } from "./src/routes";
+import { Background } from "./src/components/Background";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -22,6 +23,7 @@ export default function App() {
   });
 
   return (
+    <Background>
       <ThemeProvider theme={theme}>
         <StatusBar
           barStyle="light-content"
@@ -30,6 +32,7 @@ export default function App() {
         />
         {fontsLoaded ? <Routes /> : <Loading />}
       </ThemeProvider>
+      </Background>
   );
 }
 
