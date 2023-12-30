@@ -8,12 +8,13 @@ export const Container = styled.View`
   `;
 
 export const Label = styled.Text`
-    color: ${theme.colors.CAPTION_300};
+    color: ${theme.colors.CAPTION_400};
     font-size: ${theme.FONT_SIZE.SM};
     font-family: ${theme.FONT_FAMILY.BOLD};
   `;
 
 export const Value = styled.Text`
+    color: ${theme.colors.CAPTION_300};
     font-size: ${theme.FONT_SIZE.SM};
     font-family: ${theme.FONT_FAMILY.BOLD};
   `;

@@ -24,15 +24,18 @@ export default function App() {
 
   return (
     <Background>
-      <ThemeProvider theme={theme}>
-        <StatusBar
-          barStyle="light-content"
-          backgroundColor="transparent"
-          translucent
-        />
-        {fontsLoaded ? <Routes /> : <Loading />}
-      </ThemeProvider>
-      </Background>
+      <NativeBaseProvider>
+
+        <ThemeProvider theme={theme}>
+          <StatusBar
+            barStyle="light-content"
+            backgroundColor="transparent"
+            translucent
+          />
+          {fontsLoaded ? <Routes /> : <Loading />}
+        </ThemeProvider>
+      </NativeBaseProvider>
+    </Background>
   );
 }
 
