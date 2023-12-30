@@ -16,6 +16,7 @@ export const Header = styled.View`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  padding: 0px 20px 0px 20px;  
 `;
 
 export const Logo = styled.Image`
@@ -32,7 +33,7 @@ export const Rigth = styled.View`
 `;
 
 export const Cover = styled.Image`
-  width: 360px;
+  width: 340px;
   height: 160px;
   border-radius: 8px;
   margin-top: 32px;

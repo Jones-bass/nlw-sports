@@ -10,6 +10,8 @@ import { Container, Cover, Header, Logo, Rigth } from "./styles";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { GameParams } from "../../@types/navigation";
 import { Heading } from "../../components/Heading";
+import { FlatList } from "native-base";
+import { DuoCard } from "../../components/DuoCard";
 
 export function Game() {
   const navigation = useNavigation();
@@ -48,6 +50,12 @@ export function Game() {
           title={game.title}
           subtitle="Conecte-se e comece a jogar!"
         />
+
+            <DuoCard
+            />
+
+        
+
       </Container>
     </Background>
   );
