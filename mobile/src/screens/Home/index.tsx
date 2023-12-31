@@ -1,7 +1,6 @@
 
 import { FlatList } from 'react-native';
 
-import { Background } from "../../components/Background";
 import logoImg from '../../assets/logo-nlw-esports.png';
 import { Heading } from '../../components/Heading';
 import { GameCard, GameCardProps } from '../../components/GameCard';
@@ -10,6 +9,7 @@ import { api } from '../../service/api';
 import { useToast } from 'native-base';
 import { Container, ContentList, Logo } from './styles';
 import { useNavigation } from '@react-navigation/native';
+import { Loading } from '../../components/Loading';
 
 
 
@@ -43,9 +43,12 @@ export function Home() {
     }
   }
 
+
   useEffect(() => {
     fetchGames();
   }, [])
+
+  
 
   return (
     <Container>
@@ -58,6 +61,9 @@ export function Home() {
           subtitle="Selecione o game que deseja jogar..."
         />
         <ContentList>
+        {isLoading ? (
+          <Loading />
+        ) : (
           <FlatList
             data={games}
             keyExtractor={item => item.id}
@@ -71,6 +77,8 @@ export function Home() {
             showsHorizontalScrollIndicator={false}
             horizontal
           />
+          )}
+
         </ContentList>
     </Container>
   );

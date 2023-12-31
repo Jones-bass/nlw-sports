@@ -1,7 +1,7 @@
 import { TouchableOpacityProps } from 'react-native';
 
 import { StyledImageBackground, StyledLinearGradient, StyledTextAds, StyledTextName, StyledTouchableOpacity } from './styles';
-import theme from '../../theme/theme';
+import { THEME } from '../../theme';
 
 export interface GameCardProps {
   id: string;
@@ -20,7 +20,7 @@ export function GameCard({ data, ...rest }: Props) {
   return (
     <StyledTouchableOpacity {...rest}>
       <StyledImageBackground         source={{ uri: data.bannerUrl }}>  
-        <StyledLinearGradient colors={theme.colors.FOOTER}>
+        <StyledLinearGradient colors={THEME.COLORS.FOOTER}>
           <StyledTextName>
             {data.title}
           </StyledTextName>

@@ -10,9 +10,9 @@ import {
 } from '@expo-google-fonts/inter'
 
 import { Loading } from "./src/components/Loading";
-import theme from "./src/theme/theme";
 import { Routes } from "./src/routes";
 import { Background } from "./src/components/Background";
+import { THEME } from "./src/theme";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -24,9 +24,9 @@ export default function App() {
 
   return (
     <Background>
-      <NativeBaseProvider>
+      <NativeBaseProvider theme={THEME}>
 
-        <ThemeProvider theme={theme}>
+        <ThemeProvider theme={THEME}>
           <StatusBar
             barStyle="light-content"
             backgroundColor="transparent"

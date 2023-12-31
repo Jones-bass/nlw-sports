@@ -1,23 +1,28 @@
-import { ColorValue } from 'react-native';
 
 import { Container, Label, Value } from './styles';
-import theme from '../../theme/theme';
+import { THEME } from '../../theme';
 
 interface Props {
   label: string;
   value: string;
-  colorValue?: ColorValue
 }
 
-export function DuoInfo({ label, value, colorValue = theme.colors.TEXT }: Props) {
+export function DuoInfo({ label, value }: Props) {
+  const statusText = value.split(' ')[0];
+
   return (
     <Container>
       <Label>
         {label}
       </Label>
+      
 
-      <Value color={colorValue} numberOfLines={1}>
-        {value}
+      <Value 
+        hasCondition={statusText === 'Sim'
+        ? { themeColor: THEME.COLORS.SUCCESS }
+        : statusText === 'Não'
+        ? { themeColor: THEME.COLORS.ALERT }
+        : { themeColor: THEME.COLORS.CAPTION_300 }}> {value}
       </Value>
     </Container>
   );

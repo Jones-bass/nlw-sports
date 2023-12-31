@@ -1,11 +1,11 @@
 
 import styled from "styled-components/native";
-import theme from "../../theme/theme";
+import { THEME } from "../../theme";
 import { TouchableOpacity } from "react-native";
 
 export const Container = styled.View`
   width: 200px;
-  background-color: ${theme.colors.SHAPE};
+  background-color: ${THEME.COLORS.SHAPE};
   border-radius: 8px;
   padding: 20px;
   margin-right: 16px;
@@ -16,7 +16,7 @@ export const Button = styled(TouchableOpacity)`
   width: 100%;
   height: 36px;
   border-radius: 6px;
-  background-color: ${theme.colors.PRIMARY};
+  background-color: ${THEME.COLORS.PRIMARY};
   flex-direction: row;
   align-items: center;
   justify-content: center;
@@ -24,7 +24,7 @@ export const Button = styled(TouchableOpacity)`
 
 export const ButtonTitle = styled.Text`
   margin-left: 8px;
-  color: ${theme.colors.TEXT};
-  font-size: ${theme.FONT_SIZE.SM};
-  font-family: ${theme.FONT_FAMILY.SEMI_BOLD};
+  color: ${THEME.COLORS.TEXT};
+  font-size: ${THEME.FONT_SIZE.SM};
+  font-family: ${THEME.FONT_FAMILY.SEMI_BOLD};
 `;

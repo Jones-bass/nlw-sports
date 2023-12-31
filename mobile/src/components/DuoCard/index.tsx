@@ -2,8 +2,8 @@ import { GameController } from "phosphor-react-native";
 
 import { DuoInfo } from "../DuoInfo";
 
-import theme from '../../theme/theme';
 import { Button, ButtonTitle, Container } from './styles';
+import { THEME } from "../../theme";
 
 export interface DuoCardProps {
   id: string;
@@ -40,12 +40,11 @@ export function DuoCard({ data }: Props) {
       <DuoInfo
         label="Chamada de áudio"
         value={data.useVoiceChannel ? 'Sim' : 'Não'}
-        colorValue={data.useVoiceChannel ? theme.colors.SUCCESS : theme.colors.ALERT}
       />
 
       <Button>
         <GameController
-          color={theme.colors.TEXT}
+          color={THEME.COLORS.TEXT}
           size={20}
         />
 

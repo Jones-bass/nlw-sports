@@ -1,20 +1,28 @@
 
 import styled from "styled-components/native";
-import theme from "../../theme/theme";
+import { THEME } from "../../theme";
+
+interface PropsCondition {
+  hasCondition: {
+    themeColor: string;
+  };
+}
 
 export const Container = styled.View`
-    width: 100%;
-    margin-bottom: 16px;
-  `;
+  width: 100%;
+  margin-bottom: 16px;
+`;
 
 export const Label = styled.Text`
-    color: ${theme.colors.CAPTION_400};
-    font-size: ${theme.FONT_SIZE.SM};
-    font-family: ${theme.FONT_FAMILY.BOLD};
-  `;
+  color: ${THEME.COLORS.CAPTION_400};
+  font-size: ${THEME.FONT_SIZE.SM};
+  font-family: ${THEME.FONT_FAMILY.BOLD};
+`;
 
 export const Value = styled.Text`
-    color: ${theme.colors.CAPTION_300};
-    font-size: ${theme.FONT_SIZE.SM};
-    font-family: ${theme.FONT_FAMILY.BOLD};
-  `;
+  color: ${({ hasCondition }: PropsCondition) => hasCondition.themeColor || THEME.COLORS.CAPTION_300};
+
+  font-size: ${THEME.FONT_SIZE.SM};
+  font-family: ${THEME.FONT_FAMILY.BOLD};
+`;
+

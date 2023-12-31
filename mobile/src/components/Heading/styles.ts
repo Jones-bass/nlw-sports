@@ -1,6 +1,6 @@
 
 import styled from "styled-components/native";
-import theme from "../../theme/theme";
+import { THEME } from "../../theme";
 
 export const Container = styled.View`
     width: 100%;
@@ -8,15 +8,15 @@ export const Container = styled.View`
   `;
 
 export const Title = styled.Text`
-    color: ${theme.colors.TEXT};
-    font-size: ${theme.FONT_SIZE.LG};
-    font-family: ${theme.FONT_FAMILY.BLACK};
+    color: ${THEME.COLORS.TEXT};
+    font-size: ${THEME.FONT_SIZE.LG};
+    font-family: ${THEME.FONT_FAMILY.BLACK};
   `;
 
 export const Subtitle = styled.Text`
-    color: ${theme.colors.CAPTION_400};
-    font-size: ${theme.FONT_SIZE.MD};
-    font-family: ${theme.FONT_FAMILY.REGULAR};
+    color: ${THEME.COLORS.CAPTION_400};
+    font-size: ${THEME.FONT_SIZE.MD};
+    font-family: ${THEME.FONT_FAMILY.REGULAR};
   `;
 
 

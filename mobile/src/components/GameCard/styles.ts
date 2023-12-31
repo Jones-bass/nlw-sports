@@ -1,7 +1,7 @@
 import { TouchableOpacity, ImageBackground, TouchableOpacityProps } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import styled from 'styled-components/native';
-import theme from '../../theme/theme';
+import { THEME } from '../../theme';
 
 
 export interface GameCardProps {
@@ -35,13 +35,13 @@ export const StyledLinearGradient = styled(LinearGradient)`
 `;
 
 export const StyledTextName = styled.Text`
-  color: ${theme.colors.TEXT};
-  font-size: ${theme.FONT_SIZE.MD};
-  font-family: ${theme.FONT_FAMILY.BOLD};
+  color: ${THEME.COLORS.TEXT};
+  font-size: ${THEME.FONT_SIZE.MD};
+  font-family: ${THEME.FONT_FAMILY.BOLD};
 `;
 
 export const StyledTextAds = styled.Text`
-  color: ${theme.colors.CAPTION_300};
-  font-size: ${theme.FONT_SIZE.MD};
-  font-family: ${theme.FONT_FAMILY.REGULAR};
+  color: ${THEME.COLORS.CAPTION_300};
+  font-size: ${THEME.FONT_SIZE.MD};
+  font-family: ${THEME.FONT_FAMILY.REGULAR};
 `;

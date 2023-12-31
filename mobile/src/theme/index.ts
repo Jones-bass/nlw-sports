@@ -1,6 +1,8 @@
+import { extendTheme } from "native-base";
 
-export default {
-  colors: {
+export const THEME = extendTheme({
+
+  COLORS: {
 
     BACKGROUND_900: '#121214',
     BACKGROUND_800: '#18181B',
@@ -33,4 +35,5 @@ export default {
     MD: '16px',
     LG: '24px',
   }
-};
+
+});

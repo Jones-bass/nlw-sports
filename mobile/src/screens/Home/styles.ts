@@ -1,6 +1,6 @@
 import styled from "styled-components/native";
-import theme from "../../theme/theme";
 import { Background } from "../../components/Background";
+import { THEME } from "../../theme";
 
 export const Container = styled(Background)`
     flex: 1;
@@ -29,7 +29,7 @@ export const GradientContainer = styled.View`
 `;
 
 export const Text = styled.Text`
-    color: ${theme.colors.TEXT};
-    font-size: ${theme.FONT_SIZE.LG};
-    font-family: ${theme.FONT_FAMILY.REGULAR};
+    color: ${THEME.COLORS.TEXT};
+    font-size: ${THEME.FONT_SIZE.LG};
+    font-family: ${THEME.FONT_FAMILY.REGULAR};
 `;

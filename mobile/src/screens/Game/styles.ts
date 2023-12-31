@@ -1,6 +1,6 @@
 import styled from "styled-components/native";
-import theme from "../../theme/theme";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { THEME } from "../../theme";
 
 export const ContainerList = styled.View`
   width: 100%;
@@ -46,9 +46,9 @@ export const ContentList = styled.View`
   `;
 
 export const EmptyListText = styled.Text`
-  color: ${theme.colors.CAPTION_300};
-  font-size: ${theme.FONT_SIZE.MD};
-  font-family: ${theme.FONT_FAMILY.REGULAR};
+  color: ${THEME.COLORS.CAPTION_300};
+  font-size: ${THEME.FONT_SIZE.MD};
+  font-family: ${THEME.FONT_FAMILY.REGULAR};
 `;
 
 export const EmptyListContent = styled.View`
