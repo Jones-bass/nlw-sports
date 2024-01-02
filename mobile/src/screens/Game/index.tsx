@@ -14,11 +14,13 @@ import { useEffect, useState } from "react";
 import { api } from "../../service/api";
 import { THEME } from "../../theme";
 import { Loading } from "../../components/Loading";
+import { DuoMatch } from "../../components/DuoMatch";
 
 
 export function Game() {
   const [duos, setDuos] = useState<DuoCardProps[]>([])
   const [isLoading, setIsLoading] = useState(true);
+  const [discordDuoSelected, setDiscordDuoSelected] = useState('');
 
   const navigation = useNavigation();
   const router = useRoute();
@@ -30,6 +32,17 @@ export function Game() {
 
   const toast = useToast();
 
+  async function getDiscordUser(adsId: string) {
+    try {
+      const response = await api.get(`games/${adsId}/discords`);
+      setDiscordDuoSelected(response.data.discord);
+    } catch (error) {
+      toast.show({
+        title: 'Error ao exibir modal',
+      });
+    }
+  }
+
   async function fetchGames() {
     try {
       setIsLoading(true)
@@ -39,8 +52,6 @@ export function Game() {
       toast.show({
         title: 'Error ao exibir os cards',
       });
-
-
     } finally {
       setIsLoading(false);
     }
@@ -90,6 +101,7 @@ export function Game() {
             renderItem={({ item }) => (
               <DuoCard
                 data={item}
+                onConnect={() => getDiscordUser(item.id)}
               />
             )}
             horizontal
@@ -103,6 +115,12 @@ export function Game() {
             }
           />
         )}
+
+        <DuoMatch
+          visible={discordDuoSelected.length > 0}
+          discord={discordDuoSelected}
+          onClose={() => setDiscordDuoSelected('')}
+        />
 
       </Container>
     </Background>

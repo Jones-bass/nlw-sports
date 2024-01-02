@@ -17,9 +17,10 @@ export interface DuoCardProps {
 
 interface Props {
   data: DuoCardProps;
+  onConnect: () => void;
 }
 
-export function DuoCard({ data }: Props) {
+export function DuoCard({ data, onConnect }: Props) {
   return (
     <Container>
       <DuoInfo
@@ -42,7 +43,9 @@ export function DuoCard({ data }: Props) {
         value={data.useVoiceChannel ? 'Sim' : 'Não'}
       />
 
-      <Button>
+      <Button
+        onPress={onConnect}>
+
         <GameController
           color={THEME.COLORS.TEXT}
           size={20}
